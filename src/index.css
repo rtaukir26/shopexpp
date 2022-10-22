@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +10,66 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+*{
+  margin: 0;
+  padding: 0;
+}
+.navbar{
+  /* background-color: #171725; */
+  background-color: #9696aa;
+}
+.navbar div > ul > li{
+  list-style: none;
+}
+.navbar div > ul > li a{
+  text-decoration: none;
+  color: aliceblue;
+  
+}
+.form_div{
+  /* background-color: aqua;   */
+  padding: 10px;
+  height: 200px;
+  border-radius: 0.3rem;
+  box-shadow: 2px 2px 8px  #9696aa;
+}
+.item_input{
+  outline: none;
+  background-color: #9696aa;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  border: none;
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+}
+.addBtn_item{
+  height: 33px;
+  width: 33px;
+  border-radius: 0.3rem;
+  background-color: #b1317c;
+  color: aliceblue;
+  margin-left: 2px;
+  /* outline: none; */
+  border: none;
+  transition: all 0.3s;
+
+}
+.addBtn_item:hover{
+  background-color: #a8eb93;
+  box-shadow: 2px 2px 8px  #b1317c;
+  color: #b1317c;
+}
+.post_item_div{
+  background-color: #671445;
+  border-radius: 0.3rem;
+  color: aliceblue;
+}
+.btn_edit:hover{
+  cursor: pointer;
+  color: #ddf08a;
+}
+.btn_delete:hover{
+  cursor: pointer;
+  color: #f12454;
 }
