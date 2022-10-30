@@ -1,64 +1,107 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import { useSelector, useDispatch } from "react-redux";
-// import Products from "../products/Products";
+import ReactStars from "react-rating-stars-component";
 import {
   addToCartProduct,
   cartProductDelete,
   productQtyDecreasing,
 } from "../../store/action/fetchAllProductAction";
+import Loader from "../Loader/Loader";
+import Footer from "../../pages/footer/Footer";
 
 const AddTocart = () => {
   const addedProductToCart = useSelector(
     (state) => state.getAllproductsReducer
   );
+  const history = useNavigate();
   const dispatch = useDispatch();
   // const paramId = useParams();
   console.log("addedProductToCart atoC Page", addedProductToCart);
-
+  const options = {
+    edit: false,
+    color: "rgba(20,20,20,0.1)",
+    // activeColor: "tomato",
+    activeColor: "#ffc107",
+    size: window.innerWidth < 600 ? 20 : 25,
+    // value: 3.5,
+    isHalf: true,
+  };
   return (
     <>
       <Navbar />
       <div className="mt-5">
-        {addedProductToCart?.Added_to_cart?.length > 0 ? (
+        {addedProductToCart.loading ? (
           <div>
-            {addedProductToCart?.Added_to_cart?.map((product) => (
-              <div className="d-flex container" key={product.id}>
-                <div className="img_div m-1 p-1">
-                  <Link to={`product/${product.id}`}>
-                    <img src={product.image} alt="image" />
-                  </Link>
-                </div>
-                <div className="pr_details_div w-100 m-1 p-1">
-                  <h4>{product.title}</h4>
-                  <p>{product.description}</p>
-                  <h6>
-                    Quantity :
-                    <i
-                      className="fa-solid fa-minus bg-info "
-                      onClick={() => dispatch(productQtyDecreasing(product))}
-                    ></i>
-                    {product.productQty}
-                    <i
-                      className=" bg-info fa-solid fa-plus"
-                      onClick={() => dispatch(addToCartProduct(product))}
-                    ></i>
-                  </h6>
-                  <h6>Price : {product.price}</h6>
-                  <i
-                    className="fa-solid fa-trash"
-                    onClick={() => dispatch(cartProductDelete(product.id))}
-                  ></i>
-                </div>
-              </div>
-            ))}
+            {setTimeout(() => {
+              console.log("you can see me after 2 seconds");
+            }, 5000)}
+            <Loader />
           </div>
         ) : (
-          <div>Cart Not found</div>
+          <div className="mt-5 mb-3">
+            {addedProductToCart?.Added_to_cart?.length > 0 ? (
+              <div>
+                {addedProductToCart?.Added_to_cart?.map((product) => (
+                  <div className="d-flex container border" key={product.id}>
+                    <div className="img_div m-1 p-1">
+                      <Link to={`/product/${product.id}`}>
+                        <img src={product.image} alt="image" />
+                      </Link>
+                    </div>
+                    <div className="pr_details_div w-100 m-1 p-1">
+                      <h4>{product.title}</h4>
+                      <p>{product.description}</p>
+                      <ReactStars {...options} value={product.rating.rate} />
+                      <h6>
+                        Quantity :
+                        <i
+                          className="fa-solid fa-minus  "
+                          onClick={() =>
+                            dispatch(productQtyDecreasing(product))
+                          }
+                        ></i>
+                        {product.productQty}
+                        <i
+                          className="  fa-solid fa-plus"
+                          onClick={() => dispatch(addToCartProduct(product))}
+                        ></i>
+                      </h6>
+                      <h6>Price : {product.price * product.productQty} $</h6>
+                      <button
+                        className="btn btn-info"
+                        onClick={() => dispatch(cartProductDelete(product.id))}
+                      >
+                        Buy Now
+                      </button>
+
+                      <Link to={`/product/${product.id}`}>
+                        <button
+                          className="btn  btn-info m-1"
+                          // onClick={() => navigat(product.id)}
+                        >
+                          View Details
+                        </button>
+                      </Link>
+                      <button
+                        className="btn btn-danger ms-2"
+                        onClick={() => dispatch(cartProductDelete(product.id))}
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div>Cart Not found</div>
+            )}
+          </div>
         )}
       </div>
+      <Footer/>
     </>
   );
 };

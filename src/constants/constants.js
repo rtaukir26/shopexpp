@@ -4,6 +4,7 @@ export const FETCH_ALL_PRODUCTS_FAIL = "FETCH_ALL_PRODUCTS_FAIL";
 export const ADD_TO_CART_PRODUCT = "ADD_TO_CART_PRODUCT";
 export const CART_PRODUCT_DELETE = "CART_PRODUCT_DELETE";
 export const PRODUCT_QTY_DECREASE = "PRODUCT_QTY_DECREASE";
+export const GET_CATEGORY_PRODUCT = "GET_CATEGORY_PRODUCT";
 
 export const BASE_URL = "https://fakestoreapi.com";
 

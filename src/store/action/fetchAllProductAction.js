@@ -7,6 +7,7 @@ import {
   FETCH_ALL_PRODUCTS_FAIL,
   FETCH_ALL_PRODUCTS_REQUEST,
   FETCH_ALL_PRODUCTS_SUCCESS,
+  GET_CATEGORY_PRODUCT,
 } from "../../constants/constants";
 
 export const getAllProductsRequest = () => {
@@ -45,7 +46,15 @@ export const productQtyDecreasing = (product) => {
     type: PRODUCT_QTY_DECREASE,
     payload: product,
   };
-};// 
+};
+export const getCategoryProduct = (category) => {
+  return {
+    type: GET_CATEGORY_PRODUCT,
+    payload: category,
+  };
+};
+
+
 
 export const fetchAllProductsData = (data) => {
   return (dispatch) => {

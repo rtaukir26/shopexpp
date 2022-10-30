@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Navbar from "../../components/navbar/Navbar";
+import Footer from "../footer/Footer";
+import Home from "../home/Home";
 
 const Post = () => {
   const [input, setInput] = useState("");
@@ -58,7 +61,7 @@ const Post = () => {
     e.preventDefault();
     if (editNameId) {
       let updateName = userName.map((names) => {
-        console.log(names.id === editNameId);
+        // console.log(names.id === editNameId);
         if (names.id === editNameId) {
           return { ...names, fName: name.fname, lName: name.lname };
         }
@@ -67,7 +70,7 @@ const Post = () => {
       setUserName(updateName);
       setEditNameId(null);
       setName({ fname: "", lname: "" });
-      console.log(updateName);
+      // console.log(updateName);
     } else {
       setUserName((oldNames) => [
         ...oldNames,
@@ -80,7 +83,7 @@ const Post = () => {
   //Deleting name
   const deleteNameOnclick = (id) => {
     setUserName(userName.filter((name) => name.id !== id));
-    console.log(id);
+    // console.log(id);
   };
 
   //Editing name
@@ -92,7 +95,8 @@ const Post = () => {
 
   return (
     <>
-      <div className="mt-5 d-flex justify-content-around">
+      <Navbar />
+      <div className="mt-5 d-flex justify-content-around vh-100">
         <div className="form_div">
           <h5>your details</h5>
           <form onSubmit={userSubmitHandler}>
@@ -186,6 +190,7 @@ const Post = () => {
         </div>
         {/* --------------------------------Todo list ends---------------------------------------------- */}
       </div>
+      <Footer />
     </>
   );
 };

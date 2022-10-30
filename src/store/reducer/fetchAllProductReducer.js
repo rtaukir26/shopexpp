@@ -4,6 +4,7 @@ import {
   FETCH_ALL_PRODUCTS_FAIL,
   FETCH_ALL_PRODUCTS_REQUEST,
   FETCH_ALL_PRODUCTS_SUCCESS,
+  GET_CATEGORY_PRODUCT,
   PRODUCT_QTY_DECREASE,
 } from "../../constants/constants";
 
@@ -11,6 +12,7 @@ const initialState = {
   loading: true,
   Allproducts: [],
   Added_to_cart: [],
+  AllCategories: [],
   // Quantity: 1,
   error: "",
 };
@@ -29,6 +31,8 @@ export const getAllproductsReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         Allproducts: action.payload,
+        AllCategories: action.payload.data.map((cat) => cat.category),
+        ProductLists: action.payload.data,
         error: "",
       };
     case FETCH_ALL_PRODUCTS_FAIL:
@@ -88,15 +92,16 @@ export const getAllproductsReducer = (state = initialState, action) => {
           Added_to_cart: [...state.Added_to_cart],
         };
       }
-    //  else {
-    //   let newProduct = { ...action.payload, productQty: 1 };
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //     Added_to_cart: [...state.Added_to_cart, newProduct],
-    //     error: "",
-    //   };
-    // }
+    case GET_CATEGORY_PRODUCT:
+      let categoryPr = state.Allproducts.data.filter(
+        (item) => item.category === action.payload
+      );
+      state.ProductLists = categoryPr;
+      return {
+        ...state,
+        loading: false,
+        error: "",
+      };
 
     default:
       return state;
