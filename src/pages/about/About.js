@@ -1,10 +1,12 @@
 import React from "react";
+import "./About.css";
 import Navbar from "../../components/navbar/Navbar";
 import CompImage from "../../images/brand-image.jpg";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Footer from "../footer/Footer";
 import { validateSchema } from "../../schema";
+import axios from "axios";
 
 const initialValues = {
   name: "",
@@ -18,6 +20,22 @@ const About = () => {
       validationSchema: validateSchema,
       onSubmit: (value, action) => {
         console.log(value);
+
+        axios
+          // .post("https://dummyjson.com/auth/login", {
+          .post("https://dummyjson.com/users/add", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              username: value.email,
+              password: value.password,
+              // username: "kminchelle",
+              // password: "0lelplR",
+              // expiresInMins: 60, // optional
+            }),
+          })
+          .then((res) => console.log(res));
+
         action.resetForm();
       },
     });

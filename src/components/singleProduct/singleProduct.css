@@ -1,0 +1,41 @@
+.popup_div {
+  margin: 0px 100px;
+  display: grid;
+  place-items: center;
+  animation: popup 2s;
+}
+.popup_div > div {
+  width: 500px;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px #f78e8e;
+}
+.cross_btn {
+  cursor: pointer;
+  float: right;
+
+}
+@keyframes popup {
+  from {
+    transform: translateY(-60px);
+  }
+  to{
+    transform: translateY(0px);
+  }
+}
+.review_container {
+    /* border-radius: 5px; */
+    box-shadow: 0px 0px 1px black;
+    /* max-width: 500px; */
+    /* margin: 0px 100px; */
+
+}
+.review_div{
+  /* border:2px solid gray; */
+  border-left: 2px solid darkslategray;
+  margin-left: 10px;
+  padding: 10px;
+  max-width: 250px;
+  min-width:200px
+
+}

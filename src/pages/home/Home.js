@@ -3,19 +3,18 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Products from "../../components/products/Products";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchAllProductsData,
-  getCategoryProduct,
-} from "../../store/action/fetchAllProductAction";
+import { fetchAllProductsData } from "../../store/action/fetchAllProductAction";
 import Loader from "../../components/Loader/Loader";
 import Footer from "../footer/Footer";
 import Category_buttons from "../../components/Category_buttons/Category_buttons";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const history = useNavigate();
   const AllproductsData = useSelector((state) => state.getAllproductsReducer);
   let productCategory = AllproductsData?.AllCategories;
-  //unique categories
+  //unique Product Categories
   let uniqueCategory = [
     ...new Set(
       productCategory?.map((item) => {
@@ -23,12 +22,14 @@ const Home = () => {
       })
     ),
   ];
-  // console.log(uniqueCategory);
-
-  console.log("AllproductsData HomeP", AllproductsData);
 
   useEffect(() => {
     dispatch(fetchAllProductsData());
+    console.log("AllproductsData HomeP", AllproductsData);
+    let token = localStorage.getItem("token");
+    if (!token) {
+      history("/login");
+    }
   }, [dispatch]);
 
   return (
@@ -42,7 +43,7 @@ const Home = () => {
           All
         </button>
         {uniqueCategory?.map((category, index) => (
-          <div className="">
+          <div className="" key={index}>
             <Category_buttons category={category} index={index} />
           </div>
         ))}

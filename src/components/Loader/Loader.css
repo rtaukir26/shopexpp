@@ -1,0 +1,17 @@
+.loader_outerDiv{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+   .loader_innerDiv{
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    border-left: 3px solid #671445;
+    background-color: transparent;
+    animation: loader 2s infinite;
+   }
+   @keyframes loader {
+    from {transform :rotate(-360deg);}
+  }

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import './post.css';
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../footer/Footer";
-import Home from "../home/Home";
+// import Home from "../home/Home";
 
 const Post = () => {
   const [input, setInput] = useState("");
@@ -103,6 +104,7 @@ const Post = () => {
             <input
               type="text"
               name="fname"
+              placeholder="First name"
               className="item_input mt-1"
               value={name.fname}
               onChange={handleInput}
@@ -110,6 +112,7 @@ const Post = () => {
             <input
               type="text"
               name="lname"
+              placeholder="Last name"
               className="item_input mt-1"
               value={name.lname}
               onChange={handleInput}
@@ -160,6 +163,7 @@ const Post = () => {
             <input
               type="text"
               className="item_input"
+              placeholder="Enter item"
               value={input}
               onChange={(e) => setInput(e.target.value)}
             />

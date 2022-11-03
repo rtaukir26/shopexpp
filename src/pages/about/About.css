@@ -1,0 +1,20 @@
+.form_container{
+    background-color: #61735d;
+  }
+  .input_block{
+    width: 400px;
+    padding: 5px;
+    margin: 5px;
+  }
+  .input_label{
+    color: white;
+  }
+  .input_block > input{
+    width: 80%;
+    outline: none;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    background-color:#161d27;
+    color: white;
+  }

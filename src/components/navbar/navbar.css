@@ -1,0 +1,58 @@
+.navbar {
+    background-color: var(--navbarBgColor);
+  
+  }
+  .navbar div > ul > li {
+    list-style: none;
+    cursor: pointer;
+  }
+  .navbar div > ul > li a {
+    text-decoration: none;
+    color: #f8f5f6;
+    padding: 10px;
+  }
+  .navbar div > ul > li a:hover {
+    border-bottom: 2px solid var(--underLine);
+  }
+  .navbar div > ul > li a:focus {
+    border-bottom: 2px solid var(--underLine);
+  }
+  .logo_div{
+    width: 200px;
+  }
+  .logo_div img{
+    width:100px;
+  }
+  .add_to_cart_div{
+  position: relative;
+  /* background-color: green; */
+  margin: 5px;
+  }
+  .qty_span{
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    font-size: 10px;
+    font-weight: bolder;
+    border-radius: 50%;
+    background-color:#f9d056;
+    color: black;
+    padding: 5px;
+  }
+  .LoginSingup_container{
+   
+    display: flex;
+ 
+    margin-right: 50px;
+  }
+  .LoginSingup_div{
+ 
+    margin-right: 30px;
+ 
+  }
+  .LoginSingup_div > ul{
+    display: flex;
+  }
+  /* i{
+    cursor: pointer;
+  } */

@@ -1,11 +1,13 @@
 import React from "react";
+import './products.css';
 import { Link, useNavigate } from "react-router-dom";
 import { addToCartProduct } from "../../store/action/fetchAllProductAction";
 // import Navbar from "../navbar/Navbar";
 import { useSelector, useDispatch } from "react-redux";
-import ReactStars from "react-rating-stars-component";
+// import ReactStars from "react-rating-stars-component";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import StarRating from "../starRating/StarRating";
 
 const Products = ({ product }) => {
   // const history = useNavigate();
@@ -34,7 +36,7 @@ const Products = ({ product }) => {
       {/* <ToastContainer /> */}
       <div className="pr_details_container py-3 mb-3">
         <div className="img_div m-1 p-1">
-          <Link to={`product/${product.id}`}>
+          <Link to={`/product/${product.id}`}>
             <img src={product.image} alt="image" />
           </Link>
         </div>
@@ -42,7 +44,8 @@ const Products = ({ product }) => {
           <h5 className="text-start">{product.title}</h5>
           <div>
             <span>
-              <ReactStars {...options} value={product.rating.rate} />
+              {/* <ReactStars {...options} value={product.rating.rate} /> */}
+              <StarRating value={product.rating.rate} />
             </span>
           </div>
             <h6 className="text-start">Price : {product.price} $</h6>
@@ -53,7 +56,7 @@ const Products = ({ product }) => {
             >
               Add to Cart
             </button>
-            <Link to={`product/${product.id}`}>
+            <Link to={`/product/${product.id}`}>
               <button className="btn  btn-info m-1">View Details</button>
             </Link>
           </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import './Footer.css';
 import comp2 from "../../images/xz2.jpg";
 import comp3 from "../../images/xz3.jpg";
 import comp4 from "../../images/xz4.jpg";

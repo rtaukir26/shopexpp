@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import { useSelector, useDispatch } from "react-redux";
-import ReactStars from "react-rating-stars-component";
+// import ReactStars from "react-rating-stars-component";
 import {
   addToCartProduct,
   cartProductDelete,
@@ -11,33 +11,26 @@ import {
 } from "../../store/action/fetchAllProductAction";
 import Loader from "../Loader/Loader";
 import Footer from "../../pages/footer/Footer";
+import StarRating from "../starRating/StarRating";
 
 const AddTocart = () => {
   const addedProductToCart = useSelector(
     (state) => state.getAllproductsReducer
   );
-  const history = useNavigate();
+  // const history = useNavigate();
   const dispatch = useDispatch();
   // const paramId = useParams();
   console.log("addedProductToCart atoC Page", addedProductToCart);
-  const options = {
-    edit: false,
-    color: "rgba(20,20,20,0.1)",
-    // activeColor: "tomato",
-    activeColor: "#ffc107",
-    size: window.innerWidth < 600 ? 20 : 25,
-    // value: 3.5,
-    isHalf: true,
-  };
+
   return (
     <>
       <Navbar />
       <div className="mt-5">
         {addedProductToCart.loading ? (
           <div>
-            {setTimeout(() => {
+            {/* {setTimeout(() => {
               console.log("you can see me after 2 seconds");
-            }, 5000)}
+            }, 5000)} */}
             <Loader />
           </div>
         ) : (
@@ -54,7 +47,7 @@ const AddTocart = () => {
                     <div className="pr_details_div w-100 m-1 p-1">
                       <h4>{product.title}</h4>
                       <p>{product.description}</p>
-                      <ReactStars {...options} value={product.rating.rate} />
+                      <StarRating value={product.rating.rate} />
                       <h6>
                         Quantity :
                         <i
@@ -101,7 +94,7 @@ const AddTocart = () => {
           </div>
         )}
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
