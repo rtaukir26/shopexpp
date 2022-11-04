@@ -25,7 +25,7 @@ const Navbar = () => {
     <>
       {/* <div className="navbar d-flex justify-content-between sticky-top"> */}
       <div className="navbar sticky-top">
-        <Link to="/home">
+        <Link to="/">
           <div className="logo_div ms-2 text-white ">
             <img src={logo} alt="logo" className="" />
             Shop Exp
@@ -34,7 +34,7 @@ const Navbar = () => {
         <div className="navbar_list">
           <ul className="d-flex">
             <li className="mx-1">
-              <Link to="/home">Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li className="mx-1">
               <Link to="/post">Post</Link>
@@ -48,10 +48,10 @@ const Navbar = () => {
           <div className="LoginSingup_div ">
             <ul>
               <li>
-                <Link to="/login">
+                <Link to="/profile">
                   <i
                     className="fa-solid fa-user-tie"
-                    title="loged in"
+                    title="profile"
                     style={{ color: "rgb(69 156 234)", fontSize: "22px" }}
                   ></i>
                 </Link>

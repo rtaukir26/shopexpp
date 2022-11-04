@@ -15,15 +15,7 @@ const initialValues = {
 
 const Login = () => {
   const history = useNavigate();
-  // const [input, setInput] = useState({ name: "", password: "" });
-  // const inputChange = (e) => {
-  //   setInput({ [e.target.name]: e.target.value });
-  // };
-  //handleSubmit
-  // const handleSubmitForm = (e) => {
-  //   e.preventDefault();
-  //   console.log(input);
-  // };
+ 
   //formik
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
@@ -61,8 +53,7 @@ const Login = () => {
         //   });
         let token = Math.floor(Math.random() * 1000000 + 1);
         localStorage.setItem("token", JSON.stringify(token));
-        // console.log(token);
-        history("/home");
+        history("/");
         action.resetForm();
       },
     });

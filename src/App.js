@@ -11,6 +11,7 @@ import Post from "./pages/post/Post";
 import { store } from "./store/store";
 import Login from "./pages/login/Login";
 import { useEffect } from "react";
+import Profile from "./pages/profile/Profile";
 
 function App() {
   
@@ -20,12 +21,13 @@ function App() {
         <BrowserRouter>
           {/* <Navbar /> */}
           <Routes>
-            <Route exact path="/home" element={<Home />} />
+            <Route exact path="/" element={<Home />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/post" element={<Post />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/product/:id" element={<SingleProduct />} />
             <Route exact path="/products" element={<AddTocart />} />
+            <Route exact path="/profile" element={<Profile />} />
             <Route path="*" element={<Page404 />} />
           </Routes>
         </BrowserRouter>
