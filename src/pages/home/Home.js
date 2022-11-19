@@ -8,6 +8,8 @@ import Loader from "../../components/Loader/Loader";
 import Footer from "../footer/Footer";
 import Category_buttons from "../../components/Category_buttons/Category_buttons";
 import { useNavigate } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+import About from "../about/About";
 
 const Home = () => {
   const dispatch = useDispatch();

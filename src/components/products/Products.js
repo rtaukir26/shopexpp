@@ -34,8 +34,8 @@ const Products = ({ product }) => {
   return (
     <>
       <ToastContainer />
-      {/* <div className="pr_details_container py-3 mb-3" id={`${product.category}`}> */}
-      <div className="pr_details_container py-3 mb-3">
+      <div className="pr_details_container py-3 mb-3" id={`${product.category}`}>
+      {/* <div className="pr_details_container py-3 mb-3"> */}
         <div className="img_div m-1 p-1">
           <Link to={`/product/${product.id}`}>
             <img src={product.image} alt="image" />

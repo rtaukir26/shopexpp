@@ -10,7 +10,7 @@ import Page404 from "./pages/page404/Page404";
 import Post from "./pages/post/Post";
 import { store } from "./store/store";
 import Login from "./pages/login/Login";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import Profile from "./pages/profile/Profile";
 import SignUp from "./pages/signup/SignUp";
 import PrivateRoute from "./components/privateComp/PrivateComponent";
