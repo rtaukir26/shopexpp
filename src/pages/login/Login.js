@@ -15,13 +15,17 @@ const initialValues = {
 
 const Login = () => {
   const history = useNavigate();
- 
+
   //formik
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues,
       validationSchema: LoginvalidateSchema,
-      onSubmit: (value, action) => {
+      onSubmit: async (value, action) => {
+        let token = Math.floor(Math.random() * 1000000 + 1);
+        localStorage.setItem("token", JSON.stringify(token));
+        history("/");
+
         // console.log(value);
         // axios
         //   .post("https://dummyjson.com/auth/login", {
@@ -51,15 +55,32 @@ const Login = () => {
         //       console.log(token)
         //     }
         //   });
-        let token = Math.floor(Math.random() * 1000000 + 1);
-        localStorage.setItem("token", JSON.stringify(token));
-        history("/");
+
+        // let result = await fetch("http://localhost:5000/api/login", {
+        //   method: "POST",
+        //   body: JSON.stringify({
+        //     email: value.email,
+        //     password: value.password,
+        //   }),
+        //   headers: {
+        //     "Content-type": "application/json",
+        //   },
+        // });
+        // result = await result.json();
+        // console.log("backend loggedIn", result);
+        // if(result.name)
+        // {
+        //   localStorage.setItem("user",JSON.stringify(result))
+        //   history("/");
+        // }else{
+        //   console.log("frontEnd: user not found")
+        // }
         action.resetForm();
       },
     });
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <div className="login_container">
         <div className="login_div">
           <p className=" login_para ">Login</p>

@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Products from "../../components/products/Products";
@@ -35,6 +35,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
+      {/* category button starts */}
       <div className=" p-3 mt-3 d-flex justify-content-center ">
         <button
           className="p-2 mx-3 btn_category"
@@ -48,6 +49,9 @@ const Home = () => {
           </div>
         ))}
       </div>
+      {/* category button ends */}
+
+      {/* products rendering starts */}
 
       <div className="mt-5 mb-2">
         {AllproductsData.loading ? (
@@ -73,6 +77,7 @@ const Home = () => {
           </div>
         )}
       </div>
+      {/* products rendering ends */}
       <Footer />
     </>
   );

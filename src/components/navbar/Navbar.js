@@ -6,9 +6,9 @@ import logo from "../../images/xz10.png";
 // import Products from "../products/Products";
 
 const Navbar = () => {
-  let token;
+  const [auth, setauth] = useState("second");
+  // let auth;
   const productQty = useSelector((state) => state.getAllproductsReducer);
-  // console.log("productQty navbar", productQty);
   const history = useNavigate();
 
   //logoutHandler
@@ -17,13 +17,14 @@ const Navbar = () => {
     history("/login");
   };
   useEffect(() => {
-    token = localStorage.getItem("token");
+    let token = localStorage.getItem("token");
+    setauth(token);
+    // auth = localStorage.getItem("user");
     // console.log(token)
-  }, []);
+  }, [auth]);
 
   return (
     <>
-      {/* <div className="navbar d-flex justify-content-between sticky-top"> */}
       <div className="navbar sticky-top">
         <Link to="/">
           <div className="logo_div ms-2 text-white ">
@@ -44,6 +45,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+
         <div className="LoginSingup_container ">
           <div className="LoginSingup_div ">
             <ul>
@@ -57,22 +59,17 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                {/* <Link to="/login"> */}
                 <i
                   className="fa-solid fa-arrow-right-from-bracket"
                   title="logout"
                   onClick={logoutHandler}
-                  style={{color:"white"}}
+                  style={{ color: "white" }}
                 ></i>
-                {/* </Link> */}
               </li>
               <li>
-                <Link to="/">Sign up</Link>
+                <Link to="/signup">Sign up</Link>
               </li>
             </ul>
-            {/* <Link to="/">
-              <div className="logo_div text-white ">Sign up</div>
-            </Link> */}
           </div>
 
           <div

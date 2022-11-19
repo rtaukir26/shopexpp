@@ -1,9 +1,9 @@
 import React from "react";
 import './products.css';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { addToCartProduct } from "../../store/action/fetchAllProductAction";
 // import Navbar from "../navbar/Navbar";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 // import ReactStars from "react-rating-stars-component";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -33,7 +33,8 @@ const Products = ({ product }) => {
 
   return (
     <>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
+      {/* <div className="pr_details_container py-3 mb-3" id={`${product.category}`}> */}
       <div className="pr_details_container py-3 mb-3">
         <div className="img_div m-1 p-1">
           <Link to={`/product/${product.id}`}>
