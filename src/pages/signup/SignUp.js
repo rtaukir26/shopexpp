@@ -40,6 +40,19 @@ const SignUp = () => {
     // {
     //   history("/")
     // }
+
+    //fake login api
+    fetch('https://fakestoreapi.com/auth/login',{
+            method:'POST',
+            body:JSON.stringify({
+                username: "mor_2314",
+                password: "83r5^_"
+            })
+        })
+            .then(res=>res.json())
+            .then(json=>console.log(json)).catch(err=>console.log(err))
+
+
     action.resetForm();
   };
 
@@ -61,12 +74,12 @@ const SignUp = () => {
           isSubmitting,
         }) => (
           <Form>
-            <Field
+            {/* <Field
               type="text"
               name="name"
               value={values.name}
               placeholde="Name"
-            />
+            /> */}
             <Field
               type="email"
               name="email"

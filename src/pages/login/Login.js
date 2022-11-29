@@ -130,7 +130,7 @@ const Login = () => {
                 Submit
               </button>
               <p>
-                No account? |<Link>Sign up</Link>
+                No account? |<Link to="/signup">Sign up</Link>
               </p>
             </div>
           </form>
